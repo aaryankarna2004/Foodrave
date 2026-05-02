@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FoodCrave - Food Review Website</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="verify-overlay" id="verifyOverlay">
+    <div class="verify-box">
+      <div class="verify-header">
+        <h2>Verify you are human</h2>
+        <p>Please complete the security check before entering FoodCrave Reviews.</p>
+      </div>
+      <div class="verify-body">
+        <div class="check-row">
+          <input type="checkbox" id="humanCheck" />
+          <label for="humanCheck">I am a human visitor</label>
+        </div>
+
+        <label class="captcha-label">Security code</label>
+        <div class="captcha-row">
+          <div class="captcha-code" id="captchaCode">A7K9P</div>
+          <button class="refresh-btn" id="refreshCaptcha">Refresh</button>
+        </div>
+
+        <input
+          type="text"
+          id="captchaInput"
+          class="captcha-input"
+          placeholder="Enter the code shown above"
+        />
+        <div class="error-text" id="verifyError"></div>
+        <button class="enter-btn" id="enterSite">Enter Website</button>
+        <p class="verify-note">Protected by a custom front-end verification screen</p>
+      </div>
+    </div>
+  </div>
+
+  <header>
+    <nav>
+      <div class="logo">FoodCrave</div>
+      <div class="nav-links">
+        <a href="#hotels">Hotels</a>
+        <a href="#reviews">Reviews</a>
+        <a href="#add-review">Add Review</a>
+      </div>
+    </nav>
+
+    <div class="hero-content">
+      <h1>Discover Honest Food Reviews</h1>
+      <p>
+        Explore restaurant and hotel food ratings, read real reviews, and share your own dining
+        experience. Search by hotel name, filter by rating, and post your review instantly.
+      </p>
+      <a href="#hotels" class="hero-btn">Explore Reviews</a>
+    </div>
+  </header>
+
+  <section class="container" id="hotels">
+    <div class="section-title">
+      <h2>Popular Hotel & Restaurant Listings</h2>
+      <p>Search hotel names and filter cards by rating.</p>
+    </div>
+
+    <div class="search-filter">
+      <input type="text" id="searchHotel" placeholder="Search hotel or restaurant name..." />
+      <select id="filterRating">
+        <option value="all">Filter by rating</option>
+        <option value="5">5 Stars</option>
+        <option value="4">4 Stars & above</option>
+        <option value="3">3 Stars & above</option>
+      </select>
+    </div>
+
+    <div class="hotels-grid" id="hotelGrid">
+      <div class="hotel-card" data-name="Hotel Yak & Yeti" data-rating="5">
+        <img
+          src="https://images.unsplash.com/photo-1552566626-52f8b828add9?auto=format&fit=crop&w=900&q=80"
+          alt="Hotel Yak & Yeti"
+        />
+        <div class="hotel-info">
+          <h3>Hotel Yak & Yeti</h3>
+          <p>Luxury dining with premium ambience, elegant service, and rich Nepali plus continental dishes.</p>
+          <div class="stars">★★★★★</div>
+          <span class="badge">Top Rated</span>
+        </div>
+      </div>
+
+      <div class="hotel-card" data-name="The Dwarika's Hotel" data-rating="5">
+        <img
+          src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=900&q=80"
+          alt="The Dwarika's Hotel"
+        />
+        <div class="hotel-info">
+          <h3>The Dwarika's Hotel</h3>
+          <p>Beautiful heritage-style setting with a refined menu, cozy atmosphere, and memorable food presentation.</p>
+          <div class="stars">★★★★★</div>
+          <span class="badge">Luxury Pick</span>
+        </div>
+      </div>
+
+      <div class="hotel-card" data-name="Hotel Shanker" data-rating="4">
+        <img
+          src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=900&q=80"
+          alt="Hotel Shanker"
+        />
+        <div class="hotel-info">
+          <h3>Hotel Shanker</h3>
+          <p>Classic hotel dining experience known for spacious seating, tasty meals, and balanced pricing.</p>
+          <div class="stars">★★★★☆</div>
+          <span class="badge">Popular Choice</span>
+        </div>
+      </div>
+
+      <div class="hotel-card" data-name="Aloft Kathmandu" data-rating="4">
+        <img
+          src="https://images.unsplash.com/photo-1559339352-11d035aa65de?auto=format&fit=crop&w=900&q=80"
+          alt="Aloft Kathmandu"
+        />
+        <div class="hotel-info">
+          <h3>Aloft Kathmandu</h3>
+          <p>Modern style, trendy food menu, youthful vibe, and a great place for casual food reviews.</p>
+          <div class="stars">★★★★☆</div>
+          <span class="badge">Modern Dining</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="container" id="reviews">
+    <div class="section-title">
+      <h2>Rate and Review a Hotel</h2>
+      <p>Add hotel name, give a rating, write your experience, and see it instantly below.</p>
+    </div>
+
+    <div class="review-section">
+      <div class="review-form" id="add-review">
+        <h3>Write a Review</h3>
+
+        <label for="reviewerName">Your Name</label>
+        <input type="text" id="reviewerName" placeholder="Enter your name" />
+
+        <label for="hotelName">Hotel / Restaurant Name</label>
+        <input type="text" id="hotelName" placeholder="Enter hotel or restaurant name" />
+
+        <label>Give Rating</label>
+        <div class="star-picker" id="starPicker">
+          <span data-value="1">★</span>
+          <span data-value="2">★</span>
+          <span data-value="3">★</span>
+          <span data-value="4">★</span>
+          <span data-value="5">★</span>
+        </div>
+
+        <label for="reviewText">Write Review</label>
+        <textarea id="reviewText" placeholder="Write your food and service experience..."></textarea>
+
+        <button class="submit-btn" id="submitReview">Submit Review</button>
+      </div>
+
+      <div class="reviews-display">
+        <h3>Latest Reviews</h3>
+        <div id="reviewsList">
+          <div class="empty-state">No reviews yet. Your submitted reviews will appear here instantly.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2026 FoodCrave Reviews | Built with HTML, CSS and JavaScript</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
